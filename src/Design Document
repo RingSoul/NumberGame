@@ -1,0 +1,169 @@
+public class NumberGame
+// instance variables
+private String userName;
+private int roundNum;
+private String userDigits;
+private String userSeq;
+private int userResult; // after calculations
+private int userScore;
+private String computerSeq;
+private int computerResult; // after calculations
+private int computerScore;
+private int ASMnum; // track the number of operations for addition, subtraction, and modulus
+private int MDEnum; // track the number of operations for multiplication, division, and exponent
+private String userSeqHidden; // a running sequence that will be updated after calculations involving # (eventually match up with userSeq)
+private String compSeqHidden; // a running sequence that will be updated after calculations involving # (eventually match up with compSeq)
+private boolean isFirstStage; // true if the game should be performing the operation between the first two numbers within the sequence, false otherwise
+private String strStatus;
+// indicate the current two values that should be used for the mathematical operation.
+// Examples: "0-1", "r-2", "r-3" ...
+// numbers represent the location of a value (from left to right, start counting from 0)
+// r = current result (userResult or computerResult) after the previous calculation(s)
+private int roundsPlayed;
+
+
+
+// Constructor
+public NumberGame(String userName, String userDigits)
+this.userName = userName;
+this.userDigits = userDigits;
+this.roundNum = 3;
+this.userScore = 0;
+this.computerScore = 0;
+this.ASMnum = 0;
+this.MDEnum = 0;
+this.userSeq = generateRandomSequence();
+this.computerSeq = generateRandomSequence();
+this.userSeqHidden = encryptUserSeq();
+this.compSeqHidden = "##########";
+this.userResult = 0;
+this.computerResult = 0;
+this.isFirstStage = true;
+this.strStatus = "0-1";
+this.roundsPlayed = 0;
+
+public NumberGame(String userName, String userDigits, int roundNum)
+this.userName = userName;
+this.userDigits = userDigits;
+this.roundNum = roundNum;
+this.userScore = 0;
+this.computerScore = 0;
+this.ASMnum = 0;
+this.MDEnum = 0;
+this.userSeq = generateRandomSequence();
+this.computerSeq = generateRandomSequence();
+this.userSeqHidden = encryptUserSeq();
+this.compSeqHidden = "##########";
+this.userResult = 0;
+this.computerResult = 0;
+this.isFirstStage = true;
+this.strStatus = "0-1";
+this.roundsPlayed = 0;
+
+
+// Methods
+public static void introduce()
+--> print statements that introduce the user to the rules of the game
+
+private String generateRandomSequence()
+--> returns a random String literal that represent a sequence of numbers (10 numbers in total, 0-9 inclusive, no number repeated)
+
+private String encryptUserSeq()
+--> return a String literal that replaces all digits in "userSeq" with #s BESIDES the four digits that the user inputs as the instance variable "userDigits"
+
+private void updateCompSeqHidden(int index)
+--> updates the version of the user's current hidden sequence based on the argument for "index"; if the user's hidden sequence contains a # at that index, the sequence will be updated with that # replaced by the actual number (otherwise, do nothing)
+
+private void updateUserSeqHidden()
+--> updates the version of the user's current hidden sequence in which the first # in the user's current hidden sequence becomes visible as a number
+
+private void updateStrStatus()
+--> changes the value of the instance variable "strStatus" to the corresponding next value (possible value for status IN ORDER includes: "0-1", "r-2", "r-3" ... "r-9")
+
+public String getStrStatus()
+--> returns the literal of the instance variable "strStatus"
+
+public void play(String operation)
+--> based on the user's input for the parameter "operation" and the computer-tracked status for "which two numbers will be used for performing the operation", play one part of the game and update things such as the results of both players, the status of the game, the sequences of both players with newly-revealed # if any, etc.
+
+public void concludeRound()
+--> print statements that state the result of one round (win/lose/tie)
+
+public void concludeGame() throws InterruptedException
+--> call Animation's static method to show animation for the game result and print statements that state the result of the game (win/lose/tie) after all the rounds are played
+
+public String toString()
+--> will be called implicitly when printing the reference variable, showing the game status to the user (return a String literal that includes information such as the current scores, the current results, the current sequences, etc.)
+
+
+
+
+
+********************************************************
+
+
+
+
+
+public class Animation
+/* No instance variable */
+
+/* No/empty constructor */
+
+// Methods
+public static void userWinAnimation() throws InterruptedException
+--> animates text that indicates the result of the game as the user wins and the computer loses
+
+public static void computerWinAnimation() throws InterruptedException
+--> animates text that indicates the result of the game as the user loses and the computer wins
+
+public static void tieAnimation() throws InterruptedException
+--> animates text that indicates the result of the game as a tie between the user and the computer
+
+
+
+
+********************************************************
+
+
+
+
+public class CheckInputValidity
+/* No instance variable */
+
+/* No/empty constructor */
+
+// Methods
+public static boolean checkPreference(String preference)
+--> checks if the user has entered the desired input for their preference on the number of gaming-rounds (d/c).  True requirement: must be "d" or "c"
+
+public static boolean checkFourDigitNum(String fourDigitNum)
+--> checks if the user has entered the desired four-digit number prior to the game (true requirement: length = 4; no repeated digit; characters are numbers)
+
+public static boolean checkOperation(String operation)
+--> checks if the user has entered the desired symbols for operations (true requirement: must be one of the six symbols)
+
+
+
+
+
+********************************************************
+
+
+
+
+
+Main.java
+Step 1: Import Scanner class and create a Scanner object for obtaining user input.
+Step 2: Call the static method NumberGame.introduce() to introduce the rules of the game to the player.
+Step 3: Ask the user to enter their name.
+Step 4: Ask for the user's preference regarding the number of rounds (default/customized) they want to play.  (Based on the checker method CheckInputValidity.checkPreference(String preference), prompt the user to enter again if the previous input is invalid, until the input becomes valid)  If the user chooses to customize, ask the user for their preferred number of rounds.
+Step 5: Ask the user for a four-digit number.  If the input is invalid based on the checker method CheckInputValidity.checkFourDigitNum(String fourDigitNum), notify the user and prompt them to enter again until they enter the acceptable input.
+Step 6: Create an object for the NumberGame class based on the user's input.
+Step 7: Repeat step 8-12 for a certain number of times (based on the number of rounds that the user wants to play) -->
+Step 8: Print the object's reference variable.  The toString() method is implicitly called, and the information or status of the game is revealed on the console for the user.
+Step 9: Ask the user to enter one of the six desired symbols for performing the mathematical operation.  Based on the checker method CheckInputValidity.checkOperation(String operation), prompt the user to enter again if the previous input is invalid, and repeat until the user enters the valid input.
+Step 10: Call the non-static method play(String operation) to play one stage of the game.
+Step 11: Repeat step 8-10 until one round is completed.
+Step 12: Call the non-static method concludeRound() to state and record the result of one round (win/lose/tie)
+Step 13: (After the execution of the iteration that is stated in step 7) Call the non-static method concludeGame() to perform animation based on the result of the game and state the result to the user after the animation
