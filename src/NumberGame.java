@@ -112,24 +112,24 @@ public class NumberGame
         final String BLUE = "\033[0;34m"; // provided
         final String BLUE_BRIGHT = "\033[0;94m"; // provided
 
-        String introduction = BLUE + "Welcome to Number Game!";
-        introduction += YELLOW + "\nGeneral Rules: ";
-        introduction += BLUE + "\n1️⃣  You and the computer each will have a sequence of numbers shown as \"#\"s.";
-        introduction += "\n2️⃣  Each sequence has 10 random numbers, ranges from 0 to 9 (inclusive of both), with no digit repeated.";
-        introduction += BLUE_BRIGHT + "\nExample: Computer's shown sequence is ##########, while computer's actual sequence is 9830427165.";
-        introduction += BLUE + "\n3️⃣  You will perform mathematical operations with the numbers (six options: addition, subtraction, multiplication, division, exponent, and modulus).  Procedures shown below: ";
-        introduction += BLUE_BRIGHT + "\nFirst operation: between 1st number and 2nd number";
-        introduction += "\nSecond operation: between the result from first operation and 3rd number";
-        introduction += "\nThird operation: between the result from the second operation and 4th number";
-        introduction += "\n...";
-        introduction += GREEN + "\n(The numbers subjected to an operation will be marked with colors to ensure clarity)";
-        introduction += BLUE_BRIGHT + "\nMinor details: ";
-        introduction += "\n  - Results from divisions are rounded down if applicable.";
-        introduction += "\n  - Division by 0 (which is invalid) will result in a 0.";
-        introduction += "\n  - A result that is greater than " + Integer.MAX_VALUE + " or less than " + Integer.MIN_VALUE + " will automatically becomes 0.";
-        introduction += BLUE + "\n4️⃣  After the last operation, winning or losing will be determined by the following rules: ";
-        introduction += RED + "\n    ⬇  If the number of operations involving multiplication, division, and exponent is larger than the number of operations involving the other three, the final result that has a lesser value wins.";
-        introduction += CYAN + "\n    ⬆  If the number of operations involving addition, subtraction, and modulus is larger than the number of operations involving the other three, the final result that has a greater value wins." + WHITE;
+        String introduction = BLUE + "欢迎来到Number Game！";
+        introduction += YELLOW + "\n规则: ";
+        introduction += BLUE + "\n1️⃣  你和电脑各自会有一串数字，显示为 \"#\"。";
+        introduction += "\n2️⃣  每个序列会有10个随机的数字，范围从0到9（包括两者），没有一个数字会重复。";
+        introduction += BLUE_BRIGHT + "\n举例：计算机显示的序列为##########，但计算机实际的序列会是9830427165.";
+        introduction += BLUE + "\n3️⃣  你将对数字进行运算（共有六个选项：加法、减法、乘法、除法、指数以及模数）。过程如下所示：";
+        introduction += BLUE_BRIGHT + "\n第一次操作：在第1个数字和第2个数字之间";
+        introduction += "\n第二次操作：在第一次操作的结果和第3个数字之间";
+        introduction += "\n第三次操作：在第二次操作的结果和第4个数字之间";
+        introduction += "\n……";
+        introduction += GREEN + "\n（为确保清晰，受操作影响的数字将会用颜色标注）";
+        introduction += BLUE_BRIGHT + "\n小细节：";
+        introduction += "\n  - 如果适用，除法的结果将会向下取整。";
+        introduction += "\n  - 当除以的数字为0时，结果会是0。";
+        introduction += "\n  - 结果大于 " + Integer.MAX_VALUE + " 或小于 " + Integer.MIN_VALUE + " 都会自动转变为0。";
+        introduction += BLUE + "\n4️⃣  最后一次操作后，输赢将由以下规则决定：";
+        introduction += RED + "\n    ⬇  如果涉及乘法、除法和指数的运算数量大于涉及其它三种的运算数量，则数值最小的结果获胜。";
+        introduction += CYAN + "\n    ⬆  如果涉及加法、减法和模数的运算数量大于涉及其它三种的运算数量，则数值最大的结果获胜。" + WHITE;
 
         System.out.println(introduction);
     }
@@ -359,23 +359,23 @@ public class NumberGame
         System.out.println("🍥🍥🍥🍥🍥🍥🍥🍥🍥🍥");
         if (isErrorPossibleUser == false && isErrorPossibleComp == false)
         {
-            System.out.println("User operation result --> " + userResult);
-            System.out.println("Computer operation result --> " + computerResult);
+            System.out.println("用户操作结果 --> " + userResult);
+            System.out.println("电脑操作结果 --> " + computerResult);
         }
         else if (isErrorPossibleUser == true && isErrorPossibleComp == false)
         {
-            System.out.println("User operation result --> " + RED + userResult + " (Possible modulus/division by 0, or result being excessively large/small)" + WHITE);
-            System.out.println("Computer operation result --> " + computerResult + WHITE);
+            System.out.println("用户操作结果 --> " + RED + userResult + " （可能模数/除以的为0，或结果过大/过小）" + WHITE);
+            System.out.println("电脑操作结果 --> " + computerResult + WHITE);
         }
         else if (isErrorPossibleComp == true && isErrorPossibleUser == false)
         {
-            System.out.println("User operation result --> " + userResult + WHITE);
-            System.out.println("Computer operation result --> " + RED + computerResult + " (Possible modulus/division by 0, or result being excessively large/small)" + WHITE);
+            System.out.println("用户操作结果 --> " + userResult + WHITE);
+            System.out.println("电脑操作结果 --> " + RED + computerResult + " （可能模数/除以的为0，或结果过大/过小）" + WHITE);
         }
         else
         {
-            System.out.println("User operation result --> " + RED + userResult + " (Possible modulus/division by 0, or result being excessively large/small)" + WHITE);
-            System.out.println("Computer operation result --> " + RED + computerResult + " (Possible modulus/division by 0, or result being excessively large/small)" + WHITE);
+            System.out.println("用户操作结果 --> " + RED + userResult + " （可能模数/除以的为0，或结果过大/过小）" + WHITE);
+            System.out.println("电脑操作结果 --> " + RED + computerResult + " （可能模数/除以的为0，或结果过大/过小）" + WHITE);
         }
         System.out.println("🍥🍥🍥🍥🍥🍥🍥🍥🍥🍥");
         isFirstStage = false;
@@ -400,12 +400,12 @@ public class NumberGame
         final String PURPLE = "\033[0;35m";
 
         String result = "";
-        result += "\nTotal number of rounds that will be played: " + roundNum;
-        result += "\nNumber of round(s) played: " + roundsPlayed;
-        result += "\nCurrent user score: " + userScore;
-        result += "\nCurrent computer score: " + computerScore;
-        result += RED + "\nCurrent number of operations that involved multiplication, division, and exponent: " + MDEnum + WHITE;
-        result += CYAN + "\nCurrent number of operations that involved addition, subtraction, and modulus: " + ASMnum + WHITE;
+        result += "\n将要进行的总轮数：" + roundNum;
+        result += "\n已游玩的轮数：" + roundsPlayed;
+        result += "\n目前用户得分：" + userScore;
+        result += "\n目前电脑得分：" + computerScore;
+        result += RED + "\n目前涉及乘法、除法和指数的运算数量：" + MDEnum + WHITE;
+        result += CYAN + "\n目前涉及加法、减法和模数的运算数量：" + ASMnum + WHITE;
 
         String userFirstNum = "";
         String userSecondNum = "";
@@ -414,21 +414,21 @@ public class NumberGame
 
         if (isFirstStage)
         {
-            result += "\nCurrent user result: " + userResult;
-            result += "\nCurrent computer result: " + computerResult;
+            result += "\n目前用户结果：" + userResult;
+            result += "\n目前电脑结果：" + computerResult;
 
             userFirstNum = userSeqHidden.substring(0,1);
             userSecondNum = userSeqHidden.substring(1,2);
             compFirstNum = compSeqHidden.substring(0,1);
             compSecondNum = compSeqHidden.substring(1,2);
 
-            result += "\nCurrent user sequence: " + PURPLE + userFirstNum + YELLOW + userSecondNum + WHITE + userSeqHidden.substring(2);
-            result += "\nCurrent computer sequence: " + PURPLE + compFirstNum + YELLOW + compSecondNum + WHITE + compSeqHidden.substring(2);
+            result += "\n目前用户序列：" + PURPLE + userFirstNum + YELLOW + userSecondNum + WHITE + userSeqHidden.substring(2);
+            result += "\n目前电脑序列：" + PURPLE + compFirstNum + YELLOW + compSecondNum + WHITE + compSeqHidden.substring(2);
         }
         else
         {
-            result += "\nCurrent user result: " + PURPLE + userResult + WHITE;
-            result += "\nCurrent computer result: " + PURPLE + computerResult + WHITE;
+            result += "\n目前用户结果：" + PURPLE + userResult + WHITE;
+            result += "\n目前电脑结果：" + PURPLE + computerResult + WHITE;
 
             int middle = strStatus.indexOf("-");
             int secondNumIndex = Integer.parseInt(strStatus.substring(middle + 1));
@@ -438,12 +438,12 @@ public class NumberGame
             compFirstNum = "" + computerResult;
             compSecondNum = compSeqHidden.substring(secondNumIndex, secondNumIndex + 1);
 
-            result += "\nCurrent user sequence (updated!): " + userSeqHidden.substring(0, secondNumIndex) + YELLOW + userSecondNum + WHITE + userSeqHidden.substring(secondNumIndex + 1);
-            result += "\nCurrent computer sequence (updated!): " + compSeqHidden.substring(0, secondNumIndex) + YELLOW + compSecondNum + WHITE + compSeqHidden.substring(secondNumIndex + 1);
+            result += "\n目前用户序列（已更新）：" + userSeqHidden.substring(0, secondNumIndex) + YELLOW + userSecondNum + WHITE + userSeqHidden.substring(secondNumIndex + 1);
+            result += "\n目前电脑序列（已更新）：" + compSeqHidden.substring(0, secondNumIndex) + YELLOW + compSecondNum + WHITE + compSeqHidden.substring(secondNumIndex + 1);
         }
 
-        result += "\n" + GREEN + "Current user operation: " + PURPLE + userFirstNum + GREEN + " ? " + YELLOW + userSecondNum + WHITE;
-        result += "\n" + GREEN + "Current computer operation: " + PURPLE + compFirstNum + GREEN + " ? " + YELLOW + compSecondNum;
+        result += "\n" + GREEN + "当前用户操作：" + PURPLE + userFirstNum + GREEN + " ? " + YELLOW + userSecondNum + WHITE;
+        result += "\n" + GREEN + "当前电脑操作：" + PURPLE + compFirstNum + GREEN + " ? " + YELLOW + compSecondNum;
 
 
         return result + WHITE;
@@ -461,43 +461,43 @@ public class NumberGame
         final String WHITE = "\u001B[37m";
 
         System.out.println("🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔");
-        System.out.println("Round-Over Conclusion: ");
-        System.out.println("Your sequence is " + userSeq);
-        System.out.println("Computer's sequence is " + computerSeq);
+        System.out.println("回合总结：");
+        System.out.println("你的序列为 " + userSeq);
+        System.out.println("电脑的序列为 " + computerSeq);
         if (MDEnum > ASMnum)
         {
-            System.out.println(RED + "More operations involved multiplication, division, and exponent.  The result with a less value will win.");
+            System.out.println(RED + "更多的操作涉及到了乘法、除法和指数。结果数值最小的一方将获胜。");
             if (userResult < computerResult)
             {
-                System.out.println("Your result of " + userResult + " is less than the computer's result of " + computerResult + ", you win this round!");
+                System.out.println("你的结果 " + userResult + " 要比电脑的结果 " + computerResult + " 小，你赢了这一回合！");
                 userScore ++;
             }
             else if (computerResult < userResult)
             {
-                System.out.println("The computer's result of " + computerResult + " is less than your result of " + userResult + ", the computer wins this round!");
+                System.out.println("电脑的结果 " + computerResult + " 要比你的结果 " + userResult + " 小，电脑赢了这一回合！");
                 computerScore ++;
             }
             else
             {
-                System.out.println("Wow, both results are " + userResult + ", no one wins this round!");
+                System.out.println("天啊撸，双方的结果都是 " + userResult + "，谁都没赢！");
             }
         }
         else
         {
-            System.out.println(CYAN + "More operations involved addition, subtraction, and modulus.  The result with a greater value will win.");
+            System.out.println(CYAN + "更多的操作涉及到了加法、减法和模数。结果数值最大的一方将获胜。");
             if (userResult > computerResult)
             {
-                System.out.println("Your result of " + userResult + " is greater than the computer's result of " + computerResult + ", you win this round!");
+                System.out.println("你的结果 " + userResult + " 要比电脑的结果 " + computerResult + " 大，你赢了这一回合！");
                 userScore ++;
             }
             else if (computerResult > userResult)
             {
-                System.out.println("The computer's result of " + computerResult + " is greater than your result of " + userResult + ", the computer wins this round!");
+                System.out.println("电脑的结果 " + computerResult + " 要比你的结果 " + userResult + "大，电脑赢了这一回合！");
                 computerScore ++;
             }
             else
             {
-                System.out.println("Wow, both results are " + userResult + ", no one wins this round!");
+                System.out.println("天啊撸，双方的结果都是 " + userResult + "，谁都没赢！");
             }
         }
         System.out.println(WHITE + "🔔🔔🔔🔔🔔🔔🔔🔔🔔🔔");
@@ -535,18 +535,18 @@ public class NumberGame
         }
 
         System.out.println("🔆🔆🔆🔆🔆🔆🔆🔆🔆🔆");
-        System.out.println("Game-Over Conclusion: ");
+        System.out.println("游戏结束总结：");
         if (userScore > computerScore)
         {
-            System.out.println(userName + "'s score of " + userScore + " is greater than the computer's score of " + computerScore + ", " + userName + " wins the game!");
+            System.out.println(userName + " 的分数 " + userScore + " 高于电脑的分数 " + computerScore + "，" + userName + " 赢了这场游戏！");
         }
         else if (computerScore > userScore)
         {
-            System.out.println("The computer's score of " + computerScore + " is greater than " + userName + "'s score of " + userScore + ", the computer wins the game!");
+            System.out.println("电脑的分数 " + computerScore + " 高于 " + userName + " 的分数 " + userScore + "，电脑赢了这场游戏！");
         }
         else
         {
-            System.out.println("A creepy tie, no one wins the game 0_0");
+            System.out.println("令人毛骨悚然的平局，谁都没有赢，这一切的意义又何在 0_0");
         }
         System.out.println("🔆🔆🔆🔆🔆🔆🔆🔆🔆🔆");
     }

@@ -20,29 +20,29 @@ public class Main {
         System.out.println();
 
         // obtaining user inputs prior to the game & playing the game & concluding the result
-        System.out.print("Please enter your username: ");
+        System.out.print("请输入你的用户名：");
         String userName = input.nextLine();
-        System.out.print("CHOOSE --> Default number of rounds (3) or customized number of rounds? (Enter d for default and c for customized): ");
+        System.out.print("选择 → 默认游玩局数（3） 或 自定义局数？（d 为默认， c 为自定义）：");
         String preference = input.nextLine();
         if (CheckInputValidity.checkPreference(preference) == false)
         {
             while (CheckInputValidity.checkPreference(preference) == false)
             {
-                System.out.println(RED + "***Your preference is weird...Please try again.***" + WHITE);
-                System.out.print("CHOOSE --> Default number of rounds (3) or customized number of rounds? (Enter d for default and c for customized): ");
+                System.out.println(RED + "***你的输入很怪异……请重试……***" + WHITE);
+                System.out.print("选择 → 默认游玩局数（3） 或 自定义局数？（d 为默认， c 为自定义）：");
                 preference = input.nextLine();
             }
         }
         if (preference.equals("d"))
         {
-            System.out.print("Please enter a 4-digit number (whose individual digits will be visible in your secret sequence): ");
+            System.out.print("请输入一个4位数的数字（其各个数字都会在你的秘密序列中可见）：");
             String userDigits = input.next();
             if (CheckInputValidity.checkFourDigitNum(userDigits) == false)
             {
                 while (CheckInputValidity.checkFourDigitNum(userDigits) == false)
                 {
-                    System.out.println(RED + "***Invalid input! Ensure that your number is four-digit long and there is no repeated digit or characters other than numbers!***" + WHITE);
-                    System.out.print("Please enter a 4-digit number (whose individual digits will be visible in your secret sequence): ");
+                    System.out.println(RED + "***无效的输入！确保你的数字为4位数、没有数字重复，也没有除了数字以外的字符！***" + WHITE);
+                    System.out.print("请输入一个4位数的数字（其各个数字都会在你的秘密序列中可见）：");
                     userDigits = input.next();
                 }
             }
@@ -51,62 +51,62 @@ public class Main {
             {
                 System.out.println("\n🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀");
                 System.out.println(ng);
-                System.out.print("\n" + GREEN + "Enter the operation you want to perform (enter \"" + WHITE + "+" + GREEN + "\" for addition, \"" + WHITE + "-" + GREEN + "\" for subtraction, \"" + WHITE + "*" + GREEN + "\" for multiplication, \"" + WHITE + "/" + GREEN + "\" for division, \"" + WHITE + "^" + GREEN + "\" for exponent, \"" + WHITE + "mod" + GREEN + "\" for modulus): " + WHITE);
+                System.out.print("\n" + GREEN + "输入你要执行的操作（输入 \"" + WHITE + "+" + GREEN + "\" 以代表加法，\"" + WHITE + "-" + GREEN + "\" 以代表减法，\"" + WHITE + "*" + GREEN + "\" 以代表乘法，\"" + WHITE + "/" + GREEN + "\" 以代表除法，\"" + WHITE + "^" + GREEN + "\" 以代表指数，\"" + WHITE + "mod" + GREEN + "\" 以代表模数）：" + WHITE);
                 String operation = input.next();
                 if (CheckInputValidity.checkOperation(operation) == false)
                 {
                     while (CheckInputValidity.checkOperation(operation) == false)
                     {
-                        System.out.println(RED + "***Your input for operation is not valid, make sure to follow the instruction!***" + WHITE);
-                        System.out.print(GREEN + "Enter the operation you want to perform (enter \"" + WHITE + "+" + GREEN + "\" for addition, \"" + WHITE + "-" + GREEN + "\" for subtraction, \"" + WHITE + "*" + GREEN + "\" for multiplication, \"" + WHITE + "/" + GREEN + "\" for division, \"" + WHITE + "^" + GREEN + "\" for exponent, \"" + WHITE + "mod" + GREEN + "\" for modulus): " + WHITE);
+                        System.out.println(RED + "***你的输入无效，请务必按照说明进行操作！***" + WHITE);
+                        System.out.print(GREEN + "输入你要执行的操作（输入 \"" + WHITE + "+" + GREEN + "\" 以代表加法，\"" + WHITE + "-" + GREEN + "\" 以代表减法，\"" + WHITE + "*" + GREEN + "\" 以代表乘法，\"" + WHITE + "/" + GREEN + "\" 以代表除法，\"" + WHITE + "^" + GREEN + "\" 以代表指数，\"" + WHITE + "mod" + GREEN + "\" 以代表模数）：" + WHITE);
                         operation = input.next();
                     }
                 }
                 System.out.println();
                 ng.play(operation);
-                System.out.println(RED + "\n🌀🌀🌀🌀🌀 WAIT 🌀🌀🌀🌀🌀" + WHITE);
+                System.out.println(RED + "\n🌀🌀🌀🌀🌀 请等待 🌀🌀🌀🌀🌀" + WHITE);
                 Thread.sleep(3000);
                 while (!(ng.getStrStatus().equals("0-1")))
                 {
                     System.out.println(ng);
-                    System.out.print("\n" + GREEN + "Enter the operation you want to perform (enter \"" + WHITE + "+" + GREEN + "\" for addition, \"" + WHITE + "-" + GREEN + "\" for subtraction, \"" + WHITE + "*" + GREEN + "\" for multiplication, \"" + WHITE + "/" + GREEN + "\" for division, \"" + WHITE + "^" + GREEN + "\" for exponent, \"" + WHITE + "mod" + GREEN + "\" for modulus): " + WHITE);
+                    System.out.print("\n" + GREEN + "输入你要执行的操作（输入 \"" + WHITE + "+" + GREEN + "\" 以代表加法，\"" + WHITE + "-" + GREEN + "\" 以代表减法，\"" + WHITE + "*" + GREEN + "\" 以代表乘法，\"" + WHITE + "/" + GREEN + "\" 以代表除法，\"" + WHITE + "^" + GREEN + "\" 以代表指数，\"" + WHITE + "mod" + GREEN + "\" 以代表模数）：" + WHITE);
                     operation = input.next();
                     if (CheckInputValidity.checkOperation(operation) == false)
                     {
                         while (CheckInputValidity.checkOperation(operation) == false)
                         {
-                            System.out.println(RED + "***Your input for operation is not valid, make sure to follow the instruction!***" + WHITE);
-                            System.out.print(GREEN + "Enter the operation you want to perform (enter \"" + WHITE + "+" + GREEN + "\" for addition, \"" + WHITE + "-" + GREEN + "\" for subtraction, \"" + WHITE + "*" + GREEN + "\" for multiplication, \"" + WHITE + "/" + GREEN + "\" for division, \"" + WHITE + "^" + GREEN + "\" for exponent, \"" + WHITE + "mod" + GREEN + "\" for modulus): " + WHITE);
-                            operation = input.next();
+                            System.out.println(RED + "***你的输入无效，请务必按照说明进行操作！***" + WHITE);
+                        System.out.print(GREEN + "输入你要执行的操作（输入 \"" + WHITE + "+" + GREEN + "\" 以代表加法，\"" + WHITE + "-" + GREEN + "\" 以代表减法，\"" + WHITE + "*" + GREEN + "\" 以代表乘法，\"" + WHITE + "/" + GREEN + "\" 以代表除法，\"" + WHITE + "^" + GREEN + "\" 以代表指数，\"" + WHITE + "mod" + GREEN + "\" 以代表模数）：" + WHITE);
+                        operation = input.next();
                         }
                     }
                     System.out.println();
                     ng.play(operation);
-                    System.out.println(RED + "\n🌀🌀🌀🌀🌀 WAIT 🌀🌀🌀🌀🌀" + WHITE);
+                    System.out.println(RED + "\n🌀🌀🌀🌀🌀 请等待 🌀🌀🌀🌀🌀" + WHITE);
                     Thread.sleep(3000);
                 }
                 Thread.sleep(1500);
                 clearScreen();
                 ng.concludeRound();
             }
-            System.out.println(RED + "10 SECONDS BEFORE THE GAME CONCLUDES......" + WHITE);
-            System.out.println("***Upcoming animation...Full screen suggested***");
+            System.out.println(RED + "距离游戏结束还有10秒…………" + WHITE);
+            System.out.println("***动画即将出现……建议全屏***");
             Thread.sleep(10000);
             //animation
             ng.concludeGame();
         }
         else if (preference.equals("c"))
         {
-            System.out.print("Please enter the number of rounds that you want to play (suggested is between 1 and 5): ");
+            System.out.print("请输入你想游玩的回合数（建议为1到5回合之间）：");
             int roundNum = input.nextInt();
-            System.out.print("Please enter a 4-digit number (whose individual digits will be visible in your secret sequence): ");
+            System.out.print("请输入一个4位数的数字（其各个数字都会在你的秘密序列中可见）：");
             String userDigits = input.next();
             if (CheckInputValidity.checkFourDigitNum(userDigits) == false)
             {
                 while (CheckInputValidity.checkFourDigitNum(userDigits) == false)
                 {
-                    System.out.println(RED + "***Invalid input! Ensure that your number is four-digit long and there is no repeated digit or characters other than numbers!***" + WHITE);
-                    System.out.print("Please enter a 4-digit number (whose individual digits will be visible in your secret sequence): ");
+                    System.out.println(RED + "***无效的输入！确保你的数字为4位数、没有数字重复，也没有除了数字以外的字符！***" + WHITE);
+                    System.out.print("请输入一个4位数的数字（其各个数字都会在你的秘密序列中可见）：");
                     userDigits = input.next();
                 }
             }
@@ -115,46 +115,46 @@ public class Main {
             {
                 System.out.println("\n🌀🌀🌀🌀🌀🌀🌀🌀🌀🌀");
                 System.out.println(ng);
-                System.out.print("\n" + GREEN + "Enter the operation you want to perform (enter \"" + WHITE + "+" + GREEN + "\" for addition, \"" + WHITE + "-" + GREEN + "\" for subtraction, \"" + WHITE + "*" + GREEN + "\" for multiplication, \"" + WHITE + "/" + GREEN + "\" for division, \"" + WHITE + "^" + GREEN + "\" for exponent, \"" + WHITE + "mod" + GREEN + "\" for modulus): " + WHITE);
+                System.out.print("\n" + GREEN + "输入你要执行的操作（输入 \"" + WHITE + "+" + GREEN + "\" 以代表加法，\"" + WHITE + "-" + GREEN + "\" 以代表减法，\"" + WHITE + "*" + GREEN + "\" 以代表乘法，\"" + WHITE + "/" + GREEN + "\" 以代表除法，\"" + WHITE + "^" + GREEN + "\" 以代表指数，\"" + WHITE + "mod" + GREEN + "\" 以代表模数）：" + WHITE);
                 String operation = input.next();
                 if (CheckInputValidity.checkOperation(operation) == false)
                 {
                     while (CheckInputValidity.checkOperation(operation) == false)
                     {
-                        System.out.println(RED + "***Your input for operation is not valid, make sure to follow the instruction!***" + WHITE);
-                        System.out.print(GREEN + "Enter the operation you want to perform (enter \"" + WHITE + "+" + GREEN + "\" for addition, \"" + WHITE + "-" + GREEN + "\" for subtraction, \"" + WHITE + "*" + GREEN + "\" for multiplication, \"" + WHITE + "/" + GREEN + "\" for division, \"" + WHITE + "^" + GREEN + "\" for exponent, \"" + WHITE + "mod" + GREEN + "\" for modulus): " + WHITE);
+                        System.out.println(RED + "***你的输入无效，请务必按照说明进行操作！***" + WHITE);
+                        System.out.print(GREEN + "输入你要执行的操作（输入 \"" + WHITE + "+" + GREEN + "\" 以代表加法，\"" + WHITE + "-" + GREEN + "\" 以代表减法，\"" + WHITE + "*" + GREEN + "\" 以代表乘法，\"" + WHITE + "/" + GREEN + "\" 以代表除法，\"" + WHITE + "^" + GREEN + "\" 以代表指数，\"" + WHITE + "mod" + GREEN + "\" 以代表模数）：" + WHITE);
                         operation = input.next();
                     }
                 }
                 System.out.println();
                 ng.play(operation);
-                System.out.println(RED + "\n🌀🌀🌀🌀🌀 WAIT 🌀🌀🌀🌀🌀" + WHITE);
+                System.out.println(RED + "\n🌀🌀🌀🌀🌀 请等待 🌀🌀🌀🌀🌀" + WHITE);
                 Thread.sleep(3000);
                 while (!(ng.getStrStatus().equals("0-1")))
                 {
                     System.out.println(ng);
-                    System.out.print("\n" + GREEN + "Enter the operation you want to perform (enter \"" + WHITE + "+" + GREEN + "\" for addition, \"" + WHITE + "-" + GREEN + "\" for subtraction, \"" + WHITE + "*" + GREEN + "\" for multiplication, \"" + WHITE + "/" + GREEN + "\" for division, \"" + WHITE + "^" + GREEN + "\" for exponent, \"" + WHITE + "mod" + GREEN + "\" for modulus): " + WHITE);
+                    System.out.print("\n" + GREEN + "输入你要执行的操作（输入 \"" + WHITE + "+" + GREEN + "\" 以代表加法，\"" + WHITE + "-" + GREEN + "\" 以代表减法，\"" + WHITE + "*" + GREEN + "\" 以代表乘法，\"" + WHITE + "/" + GREEN + "\" 以代表除法，\"" + WHITE + "^" + GREEN + "\" 以代表指数，\"" + WHITE + "mod" + GREEN + "\" 以代表模数）：" + WHITE);
                     operation = input.next();
                     if (CheckInputValidity.checkOperation(operation) == false)
                     {
                         while (CheckInputValidity.checkOperation(operation) == false)
                         {
-                            System.out.println(RED + "***Your input for operation is not valid, make sure to follow the instruction!***" + WHITE);
-                            System.out.print(GREEN + "Enter the operation you want to perform (enter \"" + WHITE + "+" + GREEN + "\" for addition, \"" + WHITE + "-" + GREEN + "\" for subtraction, \"" + WHITE + "*" + GREEN + "\" for multiplication, \"" + WHITE + "/" + GREEN + "\" for division, \"" + WHITE + "^" + GREEN + "\" for exponent, \"" + WHITE + "mod" + GREEN + "\" for modulus): " + WHITE);
+                            System.out.println(RED + "***你的输入无效，请务必按照说明进行操作！***" + WHITE);
+                            System.out.print(GREEN + "输入你要执行的操作（输入 \"" + WHITE + "+" + GREEN + "\" 以代表加法，\"" + WHITE + "-" + GREEN + "\" 以代表减法，\"" + WHITE + "*" + GREEN + "\" 以代表乘法，\"" + WHITE + "/" + GREEN + "\" 以代表除法，\"" + WHITE + "^" + GREEN + "\" 以代表指数，\"" + WHITE + "mod" + GREEN + "\" 以代表模数）：" + WHITE);
                             operation = input.next();
                         }
                     }
                     System.out.println();
                     ng.play(operation);
-                    System.out.println(RED + "\n🌀🌀🌀🌀🌀 WAIT 🌀🌀🌀🌀🌀" + WHITE);
+                    System.out.println(RED + "\n🌀🌀🌀🌀🌀 请等待 🌀🌀🌀🌀🌀" + WHITE);
                     Thread.sleep(3000);
                 }
                 Thread.sleep(1500);
                 clearScreen();
                 ng.concludeRound();
             }
-            System.out.println(RED + "10 SECONDS BEFORE THE GAME CONCLUDES......" + WHITE);
-            System.out.println("***Upcoming animation...Full screen suggested***");
+            System.out.println(RED + "距离游戏结束还有10秒…………" + WHITE);
+            System.out.println("***动画即将出现……建议全屏***");
             Thread.sleep(10000);
             //animation
             ng.concludeGame();
