@@ -1,7 +1,9 @@
 # NumberGame
-1st Big Project
-A trivial game that deals with manipulations of numbers and should not be played
-Rules are all specified in the program (the instant you see it you will quit the program)
-Type: Console gaming, with (horrible) text animations
-Bad practice with all those logics in Main class, please avoid this practice when you code
-不要靠近，会变得不幸 (Google translate is not reliable, you just have to know that this is a warning)
+
+- 第一个大项目。
+- 一个涉及数字操作的琐碎游戏，不应该被玩。
+- 规则都写在了程序里面（你看到它的一瞬间就会退出程序）。
+- 类型：
+  - 控制台游戏，有（可怕的）文本动画。
+- 在Main类中的所有逻辑都很糟糕，请你编码时避免这样。
+- 不要靠近，会变得不幸。
