@@ -3,7 +3,7 @@
 
 A trivial game that deals with manipulations of numbers and should not be played
 
-Rules are all specified in the program (the instant you see it you will quit the program)
+Rules are all specified in the program (the instant you see it you will choose to quit the program)
 
 Type: Console gaming, with (horrible) text animations
 
